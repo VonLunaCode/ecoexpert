@@ -1,0 +1,53 @@
+:root { color-scheme:dark; --bg:#101b1a; --panel:#172422; --line:#344740; --text:#f0f5f1; --muted:#afc1b6; --green:#86e3ad; font:16px/1.55 "Segoe UI",system-ui,sans-serif; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--text); }
+button,select { font:inherit; }
+button { cursor:pointer; }
+button:disabled { opacity:.65; cursor:wait; }
+[hidden] { display:none!important; }
+button:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible { outline:3px solid var(--green); outline-offset:4px; }
+::selection { color:#10291d; background:var(--green); }
+* { scrollbar-width:thin; scrollbar-color:#597467 var(--bg); }
+.skip { position:absolute; clip-path:inset(50%); width:1px; height:1px; overflow:hidden; }
+.skip:focus { top:8px; left:8px; z-index:5; clip-path:none; width:auto; height:auto; padding:10px; color:#10291d; background:var(--green); }
+header { display:flex; align-items:center; gap:10px; max-width:1100px; padding:22px 32px; margin:auto; border-bottom:1px solid var(--line); font-weight:650; font-size:1.3rem; }
+header .demo { margin-left:auto; color:var(--muted); font-size:.85rem; font-weight:400; }
+main { max-width:1000px; margin:auto; padding:36px 32px; }
+h1,h2,h3,h4,p { margin:0; }
+h1 { font-size:2rem; line-height:1.2; letter-spacing:-.03em; font-weight:650; }
+h2 { font-size:1.1rem; margin-bottom:22px; }
+h3 { font-size:1.5rem; line-height:1.35; letter-spacing:-.02em; }
+h4 { font-size:.95rem; margin:26px 0 12px; }
+.intro { color:var(--muted); margin-top:10px; }
+.examples { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin:25px 0; font-size:.85rem; }
+.examples>span { color:var(--muted); margin-right:4px; }
+.examples button { background:none; color:var(--text); border:1px solid #496154; border-radius:7px; padding:8px 11px; }
+.examples button:hover { background:#284534; }
+.workspace { display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start; }
+form,.result { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:26px; }
+label { display:block; font-size:.9rem; font-weight:500; margin:21px 0 8px; }
+form h2+label { margin-top:0; }
+select { display:block; width:100%; min-height:46px; border:1px solid #597467; border-radius:7px; padding:10px 12px; background:#12201e; color:var(--text); }
+.help { font-size:.83rem; color:var(--muted); margin:-3px 0 9px; }
+.primary { margin-top:28px; width:100%; padding:12px; border:0; border-radius:7px; background:var(--green); color:#10291d; font-weight:650; }
+.primary:hover { background:#a4edc1; }
+.reset { display:block; margin:13px auto 0; background:none; border:0; color:var(--muted); padding:6px; font-size:.83rem; text-decoration:underline; text-underline-offset:4px; }
+.result { min-height:351px; }
+#empty { display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; min-height:245px; }
+#empty img { margin-bottom:20px; }
+#empty h3 { font-size:1.2rem; }
+#empty p { color:var(--muted); font-size:.9rem; margin-top:12px; max-width:30ch; }
+#answer h3 { color:var(--green); }
+#recommendation { margin-top:13px; color:var(--muted); font-size:.92rem; }
+#trace { padding-left:22px; margin:0; }
+#trace li { padding-left:4px; margin:0 0 14px; font-size:.85rem; }
+#trace li::marker { color:var(--green); }
+#trace strong { display:block; color:var(--green); font-size:.85rem; margin-bottom:3px; }
+.stale,.error { margin:14px 0; color:#f2ca81; font-size:.85rem; }
+.rules { border-top:1px solid var(--line); margin-top:30px; padding-top:20px; color:var(--muted); font-size:.9rem; }
+summary { cursor:pointer; color:var(--text); padding:5px 0; }
+.rules ol { padding-left:22px; max-width:75ch; }
+.rules li { margin:12px 0; }
+.notice { color:var(--muted); font-size:.8rem; margin-top:20px; }
+@media(max-width:700px) { header{padding:18px 20px;} header .demo{max-width:16ch;text-align:right;font-size:.8rem;} main{padding:28px 20px;} h1{font-size:1.8rem;} .workspace{grid-template-columns:1fr;gap:18px;} form,.result{padding:22px;} .examples{gap:7px;} .examples>span{width:100%;} .result{min-height:290px;} #empty{min-height:180px;} }
+@media(prefers-reduced-motion:reduce) { *{scroll-behavior:auto;} }

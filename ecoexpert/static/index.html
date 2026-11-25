@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101b1a">
+  <title>EcoExpert · Residuos del hogar</title>
+  <link rel="icon" href="/static/leaf.svg">
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#consulta">Ir a la consulta</a>
+  <header><img src="/static/leaf.svg" width="34" height="34" alt=""><span>EcoExpert</span><span class="demo">Residuos del hogar</span></header>
+  <main>
+    <h1>Separa los residuos de casa</h1>
+    <p class="intro">Elige un objeto cotidiano y consulta la orientación del sistema.</p>
+    <div class="examples" aria-label="Ejemplos"><span>Probar con:</span><button type="button" data-example="fruta">Restos de fruta</button><button type="button" data-example="botella">Botella limpia</button><button type="button" data-example="celular">Celular</button><button type="button" data-example="contacto">Envase con pintura</button></div>
+
+    <div class="workspace">
+      <form id="consulta">
+        <h2>Tu residuo</h2>
+        <label for="objeto">¿Qué quieres tirar?</label>
+        <select id="objeto" required>
+          <option value="" disabled selected>Elige un objeto o residuo</option>
+          <option value="restos_comida">Restos de comida o cáscaras</option>
+          <option value="botella_plastico">Botella de plástico</option>
+          <option value="caja_carton">Caja de cartón</option>
+          <option value="hojas_papel">Hojas de papel</option>
+          <option value="frasco_vidrio">Frasco de vidrio</option>
+          <option value="lata">Lata o bote metálico</option>
+          <option value="celular">Celular</option>
+          <option value="laptop">Laptop</option>
+          <option value="otro">Otro objeto</option>
+          <option value="desconocido">No sé qué es</option>
+        </select>
+        <div id="clean-field" hidden><label for="limpio">¿Está limpio y seco?</label><select id="limpio"><option value="desconocido">No sé</option><option value="si">Sí</option><option value="no">No</option></select></div>
+        <label for="contacto">¿Tuvo contacto con pintura o productos de limpieza?</label>
+        <p class="help" id="contact-help">Por ejemplo, un envase que contenía pintura o limpiador.</p>
+        <select id="contacto" required aria-describedby="contact-help"><option value="" disabled selected>Selecciona una opción</option><option value="no">No se conoce contacto</option><option value="si">Sí</option><option value="desconocido">No sé</option></select>
+        <button id="evaluate" class="primary" type="submit">Clasificar residuo</button>
+        <button id="reset" class="reset" type="reset">Limpiar consulta</button>
+        <p id="error" class="error" role="alert" hidden></p>
+      </form>
+
+      <section class="result" aria-labelledby="result-heading" aria-live="polite">
+        <h2 id="result-heading">Resultado</h2>
+        <div id="empty"><img src="/static/leaf.svg" width="48" height="48" alt=""><h3>De los datos a la conclusión.</h3><p>Aquí verás la orientación y las reglas que se activaron.</p></div>
+        <div id="answer" hidden><p id="stale" class="stale" hidden>Cambiaste los datos. Vuelve a clasificar.</p><h3 id="title"></h3><p id="recommendation"></p><h4>¿Cómo llegó a esa respuesta?</h4><ol id="trace"></ol></div>
+      </section>
+    </div>
+
+    <details class="rules"><summary>Ver las 8 reglas del sistema</summary><ol id="rule-list"></ol></details>
+    <p class="notice">Demostración educativa con reglas simplificadas. No sustituye una evaluación especializada.</p>
+  </main>
+</body>
+</html>
